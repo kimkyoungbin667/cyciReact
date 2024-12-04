@@ -5,7 +5,8 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Calc1 from './comp/calc/study01'
 import Inp1 from "./comp/inp/input01"
 import Oup1 from "./comp/inp/output01"
-
+import MyProfile from "./comp/inp/myProfile"
+import Result from "./comp/inp/result"
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
 
           <Route path={"/inp1"} element={<Inp1 />} />
           <Route path={"/oup1"} element={<Oup1 />} />
+          <Route path={"/myprofile"} element={<MyProfile />} />
+          <Route path={"/result"} element={<Result />} />
         </Routes>
       </BrowserRouter>
     </div>
@@ -45,6 +48,8 @@ function Home() {
       <Link to="/inp1">데이터 입력</Link> 
       <br/>
       <Link to="/oup1">데이터 출력</Link>
+      <br/>
+      <Link to="/myprofile">나의 정보 입력하기</Link>
 
     </div>
   )
