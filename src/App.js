@@ -12,6 +12,7 @@ import Ref from './comp/inp/Ref01'
 import Join from './comp/inp/Join'
 import Login from './comp/inp/login'
 import LoginResult from './comp/inp/successLogin'
+import Llogin from './comp/inp/llogin'
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path={"/join"} element={<Join />} />
           <Route path={"/login"} element={<Login />} />
           <Route path={"/loginResult"} element={<LoginResult />} />
+          <Route path={"/llogin"} element={<Llogin />} />
         </Routes>
       </BrowserRouter>
     </div>
@@ -71,6 +73,8 @@ function Home() {
       <Link to="/join">join 사용하기</Link>
       <br />
       <Link to="/login">로그인 하러가기</Link>
+      <br />
+      <Link to="/llogin">강사님의 로그인 하러가기</Link>
     </div>
   )
 }
