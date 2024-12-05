@@ -19,9 +19,6 @@ function Study() {
 
   const idRef = useRef(); //아이디 (아이디의 주소, 태그값)
 
-
-
-
   //화면이 처음 출력 되었을 때, list에 어떻게 표현 시킬 것인가?
   
 

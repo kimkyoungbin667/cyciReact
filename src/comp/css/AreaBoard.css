@@ -1,0 +1,45 @@
+/* AreaBoard.css */
+.table-container {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.styled-table th,
+.styled-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.styled-table thead {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #ddd;
+    transition: background-color 0.3s;
+}
+
+.styled-table th {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.styled-table td {
+    font-size: 14px;
+}
