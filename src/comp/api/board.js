@@ -6,7 +6,6 @@ import api from '../ax/axiosSetting'
  * @returns 
  */
 export const boardList = (param) => {
-    console.log('boardList 호출 : ', param);
     return api.get('/board/list', { 
         params: param
     });
@@ -18,6 +17,16 @@ export const boardList = (param) => {
  * @returns 
  */
 export const addBoard = (obj) => {
-    console.log('addBoard 호출 : ');
     return api.post('/board/regist', JSON.stringify(obj))
 }
+
+/**
+ * 게시글 상세보기
+ * @param {} obj 
+ * @returns 
+ */
+export const detailBoard = (param) => {
+    return api.get('/board/find', { 
+        params: param
+    });
+};

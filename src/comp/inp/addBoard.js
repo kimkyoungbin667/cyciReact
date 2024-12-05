@@ -17,7 +17,6 @@ export default function AddBoard() {
 
         addBoard(obj)
         .then(res => {
-            console.log(res);
             navigate("/listBoard")
         })
     }

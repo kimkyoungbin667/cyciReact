@@ -6,8 +6,11 @@ export default function AreaBoard(props) {
 
     console.log('리스트:', props);
 
+    function detailBoard(board) {
+        console.log(board);
+    }
     return (
-        <div className="table-container">
+        <div className="table-container" onClick={e => detailBoard(e.target.value)}>
             <table className="styled-table">
                 <thead>
                     <tr>

@@ -16,6 +16,7 @@ import Llogin from './comp/inp/llogin'
 import ItemList from './comp/inp/ItemList'
 import AddBoard from './comp//inp/addBoard'
 import ListBoard from './comp//inp/listBoard'
+import DetailBoard from './comp//inp/detailBoard'
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path={"/itemList"} element={<ItemList />} />
           <Route path={"/addBoard"} element={<AddBoard />} />
           <Route path={"/listBoard"} element={<ListBoard />} />
+          <Route path={"/detailBoard"} element={<DetailBoard />} />
         </Routes>
       </BrowserRouter>
     </div>
