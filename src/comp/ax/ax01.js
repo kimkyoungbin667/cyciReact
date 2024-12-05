@@ -5,7 +5,7 @@ export default function Ax1() {
 
     const [지역, 변경지역] = useState([]);
     const text = useRef(); //변수를 가상 dom에만 저장, 랜더 현상은 없음
-    
+
     // 사용자에게 변화되는 데이터를 보여줄 필요가 없지만, 데이터는 저장해야할때
 
     const text2 = useRef();
@@ -29,59 +29,60 @@ export default function Ax1() {
     //useRef
     function axios2() {
         console.log(text.current.value);
-        
+
         const obj = {
             'id': text.current.value
         }
 
         console.log(obj);
 
-        axios.get('http://localhost:8080/api/area/byId', {params: {
-            id: '1'
-        }})
-        .then(res => {
-            console.log(res);
+        axios.get('http://localhost:8080/api/area/byId', {
+            params: {
+                id: '1'
+            }
         })
+            .then(res => {
+                console.log(res);
+            })
     }
 
     function axios3() {
         axios.post('http://localhost:8080/api/member/list')
-        .then(res => {
-            console.log(res);
-        })
+            .then(res => {
+                console.log(res);
+            })
     }
 
     function axios4() {
-        
         const obj = {
             "id": text2.current.value
-        } // {"id": "Hello World"}
+        }; // {"id": "Hello World"}
 
-        axios.post('http://localhost:8080/api/member/findId', JSON.stringify(obj))
-        ,{
+        axios.post('http://localhost:8080/api/member/findId', JSON.stringify(obj), {
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             }
-        }
-        .then(res => {
-            console.log(res);
         })
+            .then(res => {
+                console.log(res);
+            })
     }
+
 
 
     return (
         <div>
             <h1>Axios 연습</h1>
-            <input type='button' value='get방식' onClick={axios01} /> <br/>
+            <input type='button' value='get방식' onClick={axios01} /> <br />
             <input type='text' ref={text}></input>
-            <input type='button' onClick={axios2} value="get 방식2"/>
+            <input type='button' onClick={axios2} value="get 방식2" />
 
             <h4>Post 방식</h4>
             {/* method // 전송방법: method, GET, POST (TOMCAT은 GET과 POST만 지원) */}
 
-            <input type='button' onClick={axios3} value='post 방식' /> <br/>
-            <input type='text' ref={text2}/>
-            <input type='button' onClick={axios4} value='post 방식 2'/> 
+            <input type='button' onClick={axios3} value='post 방식' /> <br />
+            <input type='text' ref={text2} />
+            <input type='button' onClick={axios4} value='post 방식 2' />
         </div>
     )
 }
