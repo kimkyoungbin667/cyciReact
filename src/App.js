@@ -13,6 +13,7 @@ import Join from './comp/inp/Join'
 import Login from './comp/inp/login'
 import LoginResult from './comp/inp/successLogin'
 import Llogin from './comp/inp/llogin'
+import ItemList from './comp/inp/ItemList'
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path={"/login"} element={<Login />} />
           <Route path={"/loginResult"} element={<LoginResult />} />
           <Route path={"/llogin"} element={<Llogin />} />
+          <Route path={"/itemList"} element={<ItemList />} />
         </Routes>
       </BrowserRouter>
     </div>
@@ -75,6 +77,8 @@ function Home() {
       <Link to="/login">로그인 하러가기</Link>
       <br />
       <Link to="/llogin">강사님의 로그인 하러가기</Link>
+      <br />
+      <Link to="/itemList">아이템 리스트</Link>
     </div>
   )
 }
