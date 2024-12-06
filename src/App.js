@@ -17,6 +17,8 @@ import ItemList from './comp/inp/ItemList'
 import AddBoard from './comp//inp/addBoard'
 import ListBoard from './comp//inp/listBoard'
 import DetailBoard from './comp//inp/detailBoard'
+import ReviseBoard from './comp//inp/reviseBoard'
+
 
 function App() {
   return (
@@ -43,6 +45,7 @@ function App() {
           <Route path={"/addBoard"} element={<AddBoard />} />
           <Route path={"/listBoard"} element={<ListBoard />} />
           <Route path={"/detailBoard"} element={<DetailBoard />} />
+          <Route path={"/reviseBoard"} element={<ReviseBoard />} />
         </Routes>
       </BrowserRouter>
     </div>

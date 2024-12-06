@@ -9,6 +9,9 @@ export default function ListBoard() {
     const navigate = useNavigate();
 
     function startItemList() {
+
+        localStorage.setItem('memberId','hong');
+
         boardList()
             .then(res => {
                 setBoards(res.data.data);
@@ -16,7 +19,6 @@ export default function ListBoard() {
     }
 
     function detailBoard(idx) {
-        console.log('보낸 idx : ', idx);
         navigate('/detailBoard', { state: { boardId: idx } }); // 객체로 전달
     }
 
@@ -43,7 +45,7 @@ export default function ListBoard() {
                         {boards.map(
                             (item, index) => {
                                 return (
-                                    <tr key={index} onClick={e => detailBoard(index)}>
+                                    <tr key={index} onClick={e => {detailBoard(item.boardIdx-1)}}>
                                         <td>{item.title}</td>
                                         <td>{item.boardGood}</td>
                                         <td>{item.memberId}</td>

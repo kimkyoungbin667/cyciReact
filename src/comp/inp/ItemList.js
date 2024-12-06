@@ -65,7 +65,6 @@ export default function Study() {
         //await없으면 그냥 비동기처리됨 (각자 스레스가 실행됨)
 
         itemGood(obj); //axios 호출 (좋아요 DB 호출)
-
     }
 
     return (

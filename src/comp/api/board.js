@@ -30,3 +30,31 @@ export const detailBoard = (param) => {
         params: param
     });
 };
+
+/**
+ * 게시글 삭제하기
+ * @param {*} obj 
+ * @returns 
+ */
+export const deleteBoard = (obj) => {
+    console.log('deleteBoard 실행');
+    return api.post('/board/remove', JSON.stringify(obj))
+}
+
+/**
+ * 게시글 수정하기
+ * @param {*} obj 
+ * @returns 
+ */
+export const reviseBoard = (obj) => {
+    return api.post('/board/modify', JSON.stringify(obj))
+}
+
+/**
+ * 게시글 좋아요하기
+ * @param {*} obj 
+ * @returns 
+ */
+export const goodBoard = (obj) => {
+    return api.post('/board/good', JSON.stringify(obj))
+}
