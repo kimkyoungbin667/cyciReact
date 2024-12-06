@@ -6,13 +6,14 @@ import BoardArea from './boardArea'
 export default function ListBoard() {
 
     const [boards, setBoards] = useState([]);
+    const [keyword, setKeyword] = useState('');
     const navigate = useNavigate();
 
-    function startItemList() {
+    function startItemList(findTitle) {
 
-        localStorage.setItem('memberId','hong');
+        localStorage.setItem('memberId', 'hong');
 
-        boardList()
+        boardList(findTitle)
             .then(res => {
                 setBoards(res.data.data);
             })
@@ -22,14 +23,37 @@ export default function ListBoard() {
         navigate('/detailBoard', { state: { boardId: idx } }); // 객체로 전달
     }
 
+    function findKeyword() {
+        let param = new Object();
+        param.keyword = keyword;
+
+        startItemList(param); // 게시글 검색
+    }
+    
     useEffect(() => {
         startItemList();
     }, [])
 
+    useEffect(() => {
+        findKeyword();
+    }, [keyword]);
 
     return (
         <div>
             <h1>게시글 목록 페이지</h1>
+
+            <input style ={
+                {
+                    'padding' : '10px',
+                    'fontSize' : '20sp'
+                }
+            }
+                type="text"
+                placeholder='제목 검색하기'
+                value={keyword}
+                onChange={
+                    e => setKeyword(e.target.value)
+                } />
 
             <div className="table-container">
                 <table className="styled-table">
@@ -45,7 +69,7 @@ export default function ListBoard() {
                         {boards.map(
                             (item, index) => {
                                 return (
-                                    <tr key={index} onClick={e => {detailBoard(item.boardIdx-1)}}>
+                                    <tr key={index} onClick={e => { detailBoard(item.boardIdx - 1) }}>
                                         <td>{item.title}</td>
                                         <td>{item.boardGood}</td>
                                         <td>{item.memberId}</td>
