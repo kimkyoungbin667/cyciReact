@@ -7,13 +7,14 @@ export default function ListBoard() {
 
     const [boards, setBoards] = useState([]);
     const [keyword, setKeyword] = useState('');
+    const [nowOption, setNowOption] = useState('제목');
     const navigate = useNavigate();
 
-    function startItemList(findTitle) {
+    function startItemList(inputKeyword) {
 
         localStorage.setItem('memberId', 'hong');
 
-        boardList(findTitle)
+        boardList(inputKeyword)
             .then(res => {
                 setBoards(res.data.data);
             })
@@ -25,7 +26,12 @@ export default function ListBoard() {
 
     function findKeyword() {
         let param = new Object();
-        param.keyword = keyword;
+
+        if(nowOption==="제목") {
+            param.keyword = keyword;
+        } else if(nowOption==="작성자"){
+            param.created = keyword;
+        }
 
         startItemList(param); // 게시글 검색
     }
@@ -36,11 +42,22 @@ export default function ListBoard() {
 
     useEffect(() => {
         findKeyword();
-    }, [keyword]);
+    }, [keyword, nowOption]);
 
     return (
         <div>
             <h1>게시글 목록 페이지</h1>
+
+            <select onChange={e=>{setNowOption(e.target.value); console.log(e.target.value)}}
+            style ={
+                {
+                    'padding' : '10px',
+                    'fontSize' : '20sp'
+                }
+            }>
+                <option key="1">제목</option>
+                <option key="2">작성자</option>
+            </select>
 
             <input style ={
                 {
@@ -49,7 +66,7 @@ export default function ListBoard() {
                 }
             }
                 type="text"
-                placeholder='제목 검색하기'
+                placeholder='검색하기'
                 value={keyword}
                 onChange={
                     e => setKeyword(e.target.value)
